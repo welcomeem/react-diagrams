@@ -299,7 +299,7 @@ export class DiagramWidget extends BaseWidget<DiagramProps, DiagramState> {
 
 	onKeyUp(event) {
 		//delete all selected
-		if (this.props.deleteKeys.indexOf(event.keyCode) !== -1) {
+		if (this.props.deleteKeys.indexOf(event.keyCode) !== -1 && event.target.tagName == "BODY") {
 			_.forEach(this.props.diagramEngine.getDiagramModel().getSelectedItems(), element => {
 				//only delete items which are not locked
 				if (!this.props.diagramEngine.isModelLocked(element)) {
